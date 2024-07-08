@@ -11,7 +11,7 @@ import SwiftUI
 struct PromovaTestTaskApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CategoriesListView()
         }
     }
 }

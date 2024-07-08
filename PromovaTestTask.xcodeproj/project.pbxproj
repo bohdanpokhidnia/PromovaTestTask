@@ -7,16 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7220C982C3C454000DCC48E /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7220C972C3C453F00DCC48E /* CategoryRow.swift */; };
+		F7220C9C2C3C504800DCC48E /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7220C9B2C3C504800DCC48E /* Font.swift */; };
+		F7220C9F2C3C56D500DCC48E /* CategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7220C9E2C3C56D500DCC48E /* CategoryType.swift */; };
+		F7220CA32C3C572300DCC48E /* FallbackCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7220CA22C3C572300DCC48E /* FallbackCase.swift */; };
+		F7220CA72C3C5F2F00DCC48E /* IfLetShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7220CA62C3C5F2F00DCC48E /* IfLetShadow.swift */; };
 		F798EFCB2C3C3D0F00A3DF77 /* PromovaTestTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F798EFCA2C3C3D0F00A3DF77 /* PromovaTestTaskApp.swift */; };
-		F798EFCD2C3C3D0F00A3DF77 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F798EFCC2C3C3D0F00A3DF77 /* ContentView.swift */; };
+		F798EFCD2C3C3D0F00A3DF77 /* CategoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F798EFCC2C3C3D0F00A3DF77 /* CategoriesListView.swift */; };
 		F798EFCF2C3C3D1000A3DF77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F798EFCE2C3C3D1000A3DF77 /* Assets.xcassets */; };
 		F798EFD22C3C3D1000A3DF77 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F798EFD12C3C3D1000A3DF77 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F7220C972C3C453F00DCC48E /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
+		F7220C9B2C3C504800DCC48E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		F7220C9E2C3C56D500DCC48E /* CategoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryType.swift; sourceTree = "<group>"; };
+		F7220CA22C3C572300DCC48E /* FallbackCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackCase.swift; sourceTree = "<group>"; };
+		F7220CA62C3C5F2F00DCC48E /* IfLetShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfLetShadow.swift; sourceTree = "<group>"; };
 		F798EFC72C3C3D0F00A3DF77 /* PromovaTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PromovaTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F798EFCA2C3C3D0F00A3DF77 /* PromovaTestTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromovaTestTaskApp.swift; sourceTree = "<group>"; };
-		F798EFCC2C3C3D0F00A3DF77 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F798EFCC2C3C3D0F00A3DF77 /* CategoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListView.swift; sourceTree = "<group>"; };
 		F798EFCE2C3C3D1000A3DF77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F798EFD12C3C3D1000A3DF77 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -32,6 +42,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F7220C962C3C452B00DCC48E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F7220C972C3C453F00DCC48E /* CategoryRow.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F7220C992C3C503300DCC48E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F7220C9A2C3C503C00DCC48E /* SwiftUI */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F7220C9A2C3C503C00DCC48E /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				F7220C9B2C3C504800DCC48E /* Font.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		F7220C9D2C3C56C800DCC48E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F7220C9E2C3C56D500DCC48E /* CategoryType.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F7220CA02C3C56F500DCC48E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F7220CA52C3C5F1900DCC48E /* ViewModifiers */,
+				F7220CA22C3C572300DCC48E /* FallbackCase.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F7220CA52C3C5F1900DCC48E /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				F7220CA62C3C5F2F00DCC48E /* IfLetShadow.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
 		F798EFBE2C3C3D0F00A3DF77 = {
 			isa = PBXGroup;
 			children = (
@@ -52,7 +111,10 @@
 			isa = PBXGroup;
 			children = (
 				F798EFCA2C3C3D0F00A3DF77 /* PromovaTestTaskApp.swift */,
-				F798EFCC2C3C3D0F00A3DF77 /* ContentView.swift */,
+				F7220CA02C3C56F500DCC48E /* Core */,
+				F7220C992C3C503300DCC48E /* Extensions */,
+				F7220C9D2C3C56C800DCC48E /* Models */,
+				F798EFD92C3C432300A3DF77 /* Modules */,
 				F798EFCE2C3C3D1000A3DF77 /* Assets.xcassets */,
 				F798EFD02C3C3D1000A3DF77 /* Preview Content */,
 			);
@@ -65,6 +127,23 @@
 				F798EFD12C3C3D1000A3DF77 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F798EFD82C3C42BA00A3DF77 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				F7220C962C3C452B00DCC48E /* Views */,
+				F798EFCC2C3C3D0F00A3DF77 /* CategoriesListView.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		F798EFD92C3C432300A3DF77 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				F798EFD82C3C42BA00A3DF77 /* Categories */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +216,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F798EFCD2C3C3D0F00A3DF77 /* ContentView.swift in Sources */,
+				F7220C9C2C3C504800DCC48E /* Font.swift in Sources */,
+				F798EFCD2C3C3D0F00A3DF77 /* CategoriesListView.swift in Sources */,
+				F7220C982C3C454000DCC48E /* CategoryRow.swift in Sources */,
+				F7220CA32C3C572300DCC48E /* FallbackCase.swift in Sources */,
+				F7220C9F2C3C56D500DCC48E /* CategoryType.swift in Sources */,
+				F7220CA72C3C5F2F00DCC48E /* IfLetShadow.swift in Sources */,
 				F798EFCB2C3C3D0F00A3DF77 /* PromovaTestTaskApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,7 +281,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -254,7 +338,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -280,6 +364,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -287,9 +372,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.promovatesttask.app.PromovaTestTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -309,6 +398,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,9 +406,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.promovatesttask.app.PromovaTestTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
