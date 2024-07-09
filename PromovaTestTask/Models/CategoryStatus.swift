@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum CategoryType: String, FallbackCase {
-    static var fallbackCase: CategoryType { .comingSoon }
+enum CategoryStatus: String, FallbackCase {
+    static var fallbackCase: CategoryStatus { .comingSoon }
     
     case paid
     case free

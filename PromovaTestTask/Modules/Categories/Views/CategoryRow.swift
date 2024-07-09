@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoryRow: View {
-    let categoryType: CategoryType
+    let categoryType: CategoryStatus
     var backgroundColor: Color = .white
     
     var body: some View {

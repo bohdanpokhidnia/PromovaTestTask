@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct CategoriesListView: View {
-    private var categoryTypes: [CategoryType] = [.free, .paid, .comingSoon]
+    private var categoriesStatus: [CategoryStatus] = [.free, .paid, .comingSoon]
     
     var body: some View {
         NavigationStack {
             ScrollView {
                 LazyVStack(spacing: 16) {
-                    ForEach(categoryTypes, id: \.self) { (categoryType) in
-                        if categoryType == .comingSoon {
-                            CategoryRow(categoryType: categoryType)
-                        } else {
+                    ForEach(categoriesStatus, id: \.self) { (categoryStatus) in
+                        if categoryStatus == .free {
                             NavigationLink {
-                                Text("Text")
+                                FactView()
                             } label: {
-                                CategoryRow(categoryType: categoryType)
+                                CategoryRow(categoryType: categoryStatus)
                             }
+                        } else {
+                            CategoryRow(categoryType: categoryStatus)
                         }
                     }
                 }
