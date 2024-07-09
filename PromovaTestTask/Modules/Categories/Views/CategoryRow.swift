@@ -19,11 +19,11 @@ struct CategoryRow: View {
             
             VStack(alignment: .leading, spacing: 0) {
                 Text("Title")
-                    .font(.appTitle)
+                    .font(.rowTitle)
                     .foregroundStyle(.categoryTitle)
                 
                 Text("Subtitle")
-                    .font(.appSubtitle)
+                    .font(.rowSubtitle)
                     .foregroundStyle(.categorySubtitle)
                 
                 Spacer()
@@ -34,7 +34,7 @@ struct CategoryRow: View {
                             .frame(width: 10, height: 12)
                         
                         Text("Premium")
-                            .font(.appTitle)
+                            .font(.rowTitle)
                             .foregroundStyle(.categoryPaid)
                     }
                     .padding(.bottom, 2)

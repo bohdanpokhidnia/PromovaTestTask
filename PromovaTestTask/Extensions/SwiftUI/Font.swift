@@ -8,7 +8,15 @@
 import SwiftUI
 
 extension Font {
-    static let appTitle = Font.system(size: 16, weight: .regular)
+    static let appNavigationTitle = Font.ptSansRegular(size: 17)
     
-    static let appSubtitle = Font.system(size: 12, weight: .regular)
+    static let rowTitle = Font.ptSansRegular(size: 16)
+    
+    static let rowSubtitle = Font.ptSansRegular(size: 12)
+    
+    static let factDescription = Font.ptSansRegular(size: 18)
+    
+    static func ptSansRegular(size: CGFloat) -> Font {
+        .custom("PTSans-Regular", size: size)
+    }
 }
