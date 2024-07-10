@@ -61,12 +61,21 @@ struct FactView: View {
                 .navigationTitle(store.category.title)
                 .background(.appBackground)
                 .ignoresSafeArea(edges: [.horizontal, .bottom])
+                .overlay(content: {
+                    if store.category.content.isEmpty {
+                        EmptyFactView(factCategoryTitle: store.category.title)
+                    }
+                })
             }
         }
     }
     
     private var factRowTopPadding: CGFloat {
         deviceOrientationObserver.orientation.isLandscape ? 20.0 : 50.0
+    }
+    
+    private var safeAreaBottomPadding: CGFloat {
+        CGFloat((safeArea.bottom == .zero) ? factRowTopPadding : safeArea.bottom)
     }
     
     private func calculationFactViewWidth(
@@ -83,7 +92,7 @@ struct FactView: View {
         orientation: UIDeviceOrientation
     ) -> CGFloat {
         orientation.isLandscape
-        ? proxy.size.height - factRowTopPadding - CGFloat((safeArea.bottom == .zero) ? factRowTopPadding : safeArea.bottom)
+        ? proxy.size.height - factRowTopPadding - safeAreaBottomPadding
         : containerHeightProportion * proxy.size.height
     }
 }

@@ -15,7 +15,7 @@ struct Category: Identifiable, Decodable {
     let image: String
     let order: Int
     let status: CategoryStatus
-    let content: /*[CategoryContent]*/ IdentifiedArrayOf<CategoryContent>
+    let content: IdentifiedArrayOf<CategoryContent>
     
     enum CodingKeys: CodingKey {
         case title
@@ -72,7 +72,6 @@ extension Category {
         order: 0,
         status: .free,
         content: [
-            .mock,
             .mock,
         ]
     )

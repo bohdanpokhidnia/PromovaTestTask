@@ -12,8 +12,8 @@ import ComposableArchitecture
 struct FactFeature {
     @ObservableState
     struct State: Equatable {
-        var currentTabIndex: Int = 0
         let category: Category
+        var currentTabIndex: Int = 0
     }
     
     enum Action {
