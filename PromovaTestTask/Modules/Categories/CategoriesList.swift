@@ -78,7 +78,7 @@ struct CategoriesList {
                 
             case let .network(error):
                 state.isLoading = false
-                print("[dev] \(error.localizedDescription)")
+                print("[dev] \(error)")
                 return .none
                 
             case let .categoryViewTapped(category):

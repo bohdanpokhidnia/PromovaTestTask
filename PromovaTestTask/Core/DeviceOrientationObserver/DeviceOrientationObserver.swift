@@ -27,14 +27,3 @@ final class DeviceOrientationObserver: ObservableObject {
     
     private var bag = Set<AnyCancellable>()
 }
-
-private struct DeviceOrientationObserverEnvironmentKey: EnvironmentKey {
-    static var defaultValue: DeviceOrientationObserver = DeviceOrientationObserver()
-}
-
-extension EnvironmentValues {
-    var deviceOrientationObserver: DeviceOrientationObserver {
-        get { self[DeviceOrientationObserverEnvironmentKey.self] }
-        set { self[DeviceOrientationObserverEnvironmentKey.self] = newValue }
-    }
-}

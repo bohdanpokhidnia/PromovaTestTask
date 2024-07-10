@@ -15,7 +15,7 @@ struct Category: Identifiable, Decodable {
     let image: String
     let order: Int
     let status: CategoryStatus
-    let content: [CategoryContent]?
+    let content: [CategoryContent]
     
     enum CodingKeys: CodingKey {
         case title
@@ -24,6 +24,35 @@ struct Category: Identifiable, Decodable {
         case order
         case status
         case content
+    }
+    
+    // MARK: - Initializers
+    
+    init(
+        title: String,
+        description: String,
+        image: String,
+        order: Int,
+        status: CategoryStatus,
+        content: [CategoryContent]
+    ) {
+        self.title = title
+        self.description = description
+        self.image = image
+        self.order = order
+        self.status = status
+        self.content = content
+    }
+    
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.title = try container.decode(String.self, forKey: .title)
+        self.description = try container.decode(String.self, forKey: .description)
+        self.image = try container.decode(String.self, forKey: .image)
+        self.order = try container.decode(Int.self, forKey: .order)
+        self.status = try container.decode(CategoryStatus.self, forKey: .status)
+        self.content = try container.decodeIfPresent([CategoryContent].self, forKey: .content) ?? []
     }
 }
 
@@ -42,7 +71,10 @@ extension Category {
         image: "https://picsum.photos/300/200",
         order: 0,
         status: .free,
-        content: nil
+        content: [
+            .mock,
+            .mock,
+        ]
     )
     
     static let mockPaid = Category(
@@ -51,7 +83,7 @@ extension Category {
         image: "https://picsum.photos/300/200",
         order: 0,
         status: .paid,
-        content: nil
+        content: []
     )
     
     static let mockСomingSoon = Category(
@@ -60,6 +92,6 @@ extension Category {
         image: "https://picsum.photos/300/200",
         order: 0,
         status: .comingSoon,
-        content: nil
+        content: []
     )
 }
