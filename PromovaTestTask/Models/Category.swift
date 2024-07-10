@@ -31,7 +31,7 @@ extension Category {
     static let mockFree = Category(
         title: "Mock title",
         description: "Mock description",
-        image: "Mock image",
+        image: "https://picsum.photos/300/200",
         order: 0,
         status: .free,
         content: nil
@@ -40,7 +40,7 @@ extension Category {
     static let mockPaid = Category(
         title: "Mock title",
         description: "Mock description",
-        image: "Mock image",
+        image: "https://picsum.photos/300/200",
         order: 0,
         status: .paid,
         content: nil
@@ -49,7 +49,7 @@ extension Category {
     static let mockСomingSoon = Category(
         title: "Mock title",
         description: "Mock description",
-        image: "Mock image",
+        image: "https://picsum.photos/300/200",
         order: 0,
         status: .comingSoon,
         content: nil

@@ -13,15 +13,22 @@ struct CategoriesList {
     @ObservableState
     struct State {
         var isLoading: Bool = false
-        var factFeature = FactFeature.State()
         var categories: IdentifiedArrayOf<Category> = []
+        var path = StackState<Path.State>()
     }
     
     enum Action {
         case onAppear
         case categoriesResponse([Category])
         case network(error: NetworkError)
-        case factFeature(FactFeature.Action)
+        case categoryViewTapped(Category)
+        case check(CategoryStatus)
+        case path(StackActionOf<Path>)
+    }
+    
+    @Reducer(state: .equatable)
+    enum Path {
+        case fact(FactFeature)
     }
     
     @Dependency(\.categoriesLoader) private var categoriesLoader
@@ -58,9 +65,26 @@ struct CategoriesList {
                 print("[dev] \(error.localizedDescription)")
                 return .none
                 
-            case .factFeature:
+            case let .categoryViewTapped(category):
+                return .send(.check(category.status))
+                
+            case let .check(status):
+                switch status {
+                case .free:
+                    state.path.append(.fact(FactFeature.State()))
+                    
+                case .paid:
+                    break
+                    
+                case .comingSoon:
+                    break
+                }
+                return .none
+                
+            case .path:
                 return .none
             }
         }
+        .forEach(\.path, action: \.path)
     }
 }

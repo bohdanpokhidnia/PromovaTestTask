@@ -9,25 +9,17 @@ import SwiftUI
 import ComposableArchitecture
 
 struct CategoriesListView: View {
-    var store: StoreOf<CategoriesList>
+    @Perception.Bindable var store: StoreOf<CategoriesList>
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
             ScrollView {
                 LazyVStack(spacing: 16) {
                     ForEach(store.categories) { (category) in
-                        if category.status == .free {
-                            NavigationLink {
-                                FactView(store: store.scope(state: \.factFeature, action: \.factFeature))
-                            } label: {
-                                CategoryRow(category: category)
-                            }
-                        } else {
-                            Button {
-                                
-                            } label: {
-                                CategoryRow(category: category)
-                            }
+                        Button {
+                            store.send(.categoryViewTapped(category))
+                        } label: {
+                            CategoryRow(category: category)
                         }
                     }
                 }
@@ -43,6 +35,11 @@ struct CategoriesListView: View {
             })
             .onAppear {
                 store.send(.onAppear)
+            }
+        } destination: { (store) in
+            switch store.case {
+            case let .fact(factStore):
+                FactView(store: factStore)
             }
         }
     }

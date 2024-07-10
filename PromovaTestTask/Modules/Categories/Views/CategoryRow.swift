@@ -12,9 +12,12 @@ struct CategoryRow: View {
     
     var body: some View {
         HStack(alignment: .top, spacing: 0) {
-            Rectangle()
-                .fill(.red)
-                .frame(width: 121, height: 90)
+            ImageLoading(
+                uiImage: category.uiImage,
+                urlString: category.image
+            )
+            .frame(width: 121, height: 90)
+            .clipped()
             
             VStack(alignment: .leading, spacing: 0) {
                 Text(category.title)
