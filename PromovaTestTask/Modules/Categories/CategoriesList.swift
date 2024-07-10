@@ -34,7 +34,7 @@ struct CategoriesList {
                 state.categories.removeAll()
                 
                 return .run { (send) in
-                    let result = await categoriesLoader.fetchCategories()
+                    let result = await categoriesLoader.fetchCategories(CategoryLoaderDependencies())
                     switch result {
                     case let .success(categories):
                         await send(.categoriesResponse(categories))

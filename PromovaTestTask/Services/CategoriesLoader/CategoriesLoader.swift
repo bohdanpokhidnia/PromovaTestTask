@@ -9,5 +9,5 @@ import Foundation
 import ComposableArchitecture
 
 struct CategoriesLoader {
-    var fetchCategories: () async -> Result<[Category], Error>
+    var fetchCategories: (CategoryLoaderDependencies<[Category]>) async -> Result<[Category], NetworkError>
 }

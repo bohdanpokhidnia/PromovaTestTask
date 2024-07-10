@@ -9,28 +9,42 @@ import Foundation
 import ComposableArchitecture
 
 extension CategoriesLoader: DependencyKey {
-    static var liveValue = CategoriesLoader(fetchCategories: {
-        @Dependency(\.config) var config
-        @Dependency(\.requestBuilder) var requestBuilder
-        
-        guard let apiURL = URL(string: config.apiURL) else {
-            return .failure(NSError(domain: "", code: 0))
+    static var liveValue = CategoriesLoader(
+        fetchCategories: { (categoriesLoaderDependencies) in
+            @Dependency(\.config) var config
+            @Dependency(\.requestBuilder) var requestBuilder
+            
+            guard let apiURL = URL(string: config.apiURL) else {
+                return .failure(.invalidURL)
+            }
+            
+            let request = requestBuilder
+                .setHTTPMethod(.get)
+                .buildRequest(baseURL: apiURL)
+            
+            guard let url = request?.url else {
+                return .failure(.invalidRequestURL)
+            }
+            
+            let loadDataResult = await categoriesLoaderDependencies.loadData(url)
+            
+            switch loadDataResult {
+            case let .success(data):
+                let decodeDataResult = categoriesLoaderDependencies.decode(data, JSONDecoder())
+                
+                switch decodeDataResult {
+                case let .success(categories):
+                    return .success(categories)
+                    
+                case let .failure(error):
+                    return .failure(error)
+                }
+                
+            case let .failure(error):
+                return .failure(error)
+            }
         }
-        let request = requestBuilder
-            .setHTTPMethod(.get)
-            .buildRequest(baseURL: apiURL)
-        guard let url = request?.url else {
-            return .failure(NSError(domain: "", code: 0))
-        }
-        
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            let categories = try JSONDecoder().decode([Category].self, from: data)
-            return .success(categories)
-        } catch {
-            return .failure(NSError(domain: "", code: 0))
-        }
-    })
+    )
 }
 
 extension DependencyValues {
