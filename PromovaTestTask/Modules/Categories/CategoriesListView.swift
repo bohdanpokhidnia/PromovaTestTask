@@ -12,34 +12,36 @@ struct CategoriesListView: View {
     @Perception.Bindable var store: StoreOf<CategoriesList>
     
     var body: some View {
-        NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
-            ScrollView {
-                LazyVStack(spacing: 16) {
-                    ForEach(store.categories) { (category) in
-                        Button {
-                            store.send(.categoryViewTapped(category))
-                        } label: {
-                            CategoryRow(category: category)
+        WithPerceptionTracking {
+            NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
+                ScrollView {
+                    LazyVStack(spacing: 16) {
+                        ForEach(store.categories) { (category) in
+                            Button {
+                                store.send(.categoryViewTapped(category))
+                            } label: {
+                                CategoryRow(category: category)
+                            }
                         }
                     }
+                    .padding(.top, 30)
+                    .padding(.horizontal, 15)
+                    .opacity(store.isLoading ? 0 : 1)
                 }
-                .padding(.top, 30)
-                .padding(.horizontal, 15)
-                .opacity(store.isLoading ? 0 : 1)
-            }
-            .background(.appBackground)
-            .overlay(content: {
-                if store.isLoading {
-                    ProgressView()
+                .background(.appBackground)
+                .overlay(content: {
+                    if store.isLoading {
+                        ProgressView()
+                    }
+                })
+                .onAppear {
+                    store.send(.onAppear)
                 }
-            })
-            .onAppear {
-                store.send(.onAppear)
-            }
-        } destination: { (store) in
-            switch store.case {
-            case let .fact(factStore):
-                FactView(store: factStore)
+            } destination: { (store) in
+                switch store.case {
+                case let .fact(factStore):
+                    FactView(store: factStore)
+                }
             }
         }
     }

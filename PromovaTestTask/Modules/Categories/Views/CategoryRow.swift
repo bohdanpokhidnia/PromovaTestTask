@@ -13,7 +13,6 @@ struct CategoryRow: View {
     var body: some View {
         HStack(alignment: .top, spacing: 0) {
             ImageLoading(
-                uiImage: category.uiImage,
                 urlString: category.image
             )
             .frame(width: 121, height: 90)
