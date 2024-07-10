@@ -47,7 +47,7 @@ extension Category {
     )
     
     static let mockСomingSoon = Category(
-        title: "Mock title",
+        title: "Coming Soon title",
         description: "Mock description",
         image: "https://picsum.photos/300/200",
         order: 0,

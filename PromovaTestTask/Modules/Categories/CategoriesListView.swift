@@ -18,7 +18,7 @@ struct CategoriesListView: View {
                     LazyVStack(spacing: 16) {
                         ForEach(store.categories) { (category) in
                             Button {
-                                store.send(.categoryViewTapped(category))
+                                store.send(.categoryViewTapped(category: category))
                             } label: {
                                 CategoryRow(category: category)
                             }
@@ -37,6 +37,7 @@ struct CategoriesListView: View {
                 .onAppear {
                     store.send(.onAppear)
                 }
+                .alert($store.scope(state: \.alert, action: \.alert))
             } destination: { (store) in
                 switch store.case {
                 case let .fact(factStore):
@@ -53,7 +54,11 @@ struct CategoriesListView: View {
             store: Store(
                 initialState: CategoriesList.State(
                     isLoading: false,
-                    categories: [.mockFree, .mockPaid, .mockСomingSoon]
+                    categories: [
+                        .mockFree,
+                        .mockPaid,
+                        .mockСomingSoon,
+                    ]
                 )
             ) {
                 CategoriesList()

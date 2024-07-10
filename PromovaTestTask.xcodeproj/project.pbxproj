@@ -20,7 +20,7 @@
 		F70603EE2C3E9B5600D16DF9 /* PremiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70603ED2C3E9B5600D16DF9 /* PremiumView.swift */; };
 		F70603F02C3E9E4300D16DF9 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70603EF2C3E9E4300D16DF9 /* NetworkError.swift */; };
 		F70603F32C3EA67000D16DF9 /* CategoryLoaderDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70603F22C3EA67000D16DF9 /* CategoryLoaderDependencies.swift */; };
-		F70603F62C3EABE600D16DF9 /* WatchAdAlertState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70603F52C3EABE600D16DF9 /* WatchAdAlertState.swift */; };
+		F70603F62C3EABE600D16DF9 /* CategoriesListAlertStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70603F52C3EABE600D16DF9 /* CategoriesListAlertStates.swift */; };
 		F70603F92C3EC4A400D16DF9 /* ImageLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70603F82C3EC4A400D16DF9 /* ImageLoading.swift */; };
 		F7220C982C3C454000DCC48E /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7220C972C3C453F00DCC48E /* CategoryRow.swift */; };
 		F7220C9C2C3C504800DCC48E /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7220C9B2C3C504800DCC48E /* Font.swift */; };
@@ -56,7 +56,7 @@
 		F70603ED2C3E9B5600D16DF9 /* PremiumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumView.swift; sourceTree = "<group>"; };
 		F70603EF2C3E9E4300D16DF9 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		F70603F22C3EA67000D16DF9 /* CategoryLoaderDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLoaderDependencies.swift; sourceTree = "<group>"; };
-		F70603F52C3EABE600D16DF9 /* WatchAdAlertState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchAdAlertState.swift; sourceTree = "<group>"; };
+		F70603F52C3EABE600D16DF9 /* CategoriesListAlertStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListAlertStates.swift; sourceTree = "<group>"; };
 		F70603F82C3EC4A400D16DF9 /* ImageLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoading.swift; sourceTree = "<group>"; };
 		F7220C972C3C453F00DCC48E /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 		F7220C9B2C3C504800DCC48E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 		F70603F42C3EABBC00D16DF9 /* AlertStates */ = {
 			isa = PBXGroup;
 			children = (
-				F70603F52C3EABE600D16DF9 /* WatchAdAlertState.swift */,
+				F70603F52C3EABE600D16DF9 /* CategoriesListAlertStates.swift */,
 			);
 			path = AlertStates;
 			sourceTree = "<group>";
@@ -420,7 +420,7 @@
 				F70603F02C3E9E4300D16DF9 /* NetworkError.swift in Sources */,
 				F72B45282C3E4EC9009CE4D9 /* DeviceOrientationObserver.swift in Sources */,
 				F798EFCB2C3C3D0F00A3DF77 /* PromovaTestTaskApp.swift in Sources */,
-				F70603F62C3EABE600D16DF9 /* WatchAdAlertState.swift in Sources */,
+				F70603F62C3EABE600D16DF9 /* CategoriesListAlertStates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

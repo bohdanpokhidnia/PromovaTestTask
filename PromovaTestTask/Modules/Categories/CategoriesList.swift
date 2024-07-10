@@ -15,15 +15,21 @@ struct CategoriesList {
         var isLoading: Bool = false
         var categories: IdentifiedArrayOf<Category> = []
         var path = StackState<Path.State>()
+        @Presents var alert: AlertState<Action.Alert>?
     }
     
     enum Action {
         case onAppear
-        case categoriesResponse([Category])
+        case categoriesResponse(categories: [Category])
         case network(error: NetworkError)
-        case categoryViewTapped(Category)
-        case check(CategoryStatus)
+        case categoryViewTapped(category: Category)
+        case checkStatus(category: Category)
         case path(StackActionOf<Path>)
+        case alert(PresentationAction<Alert>)
+        
+        enum Alert {
+            case showAd(id: UUID)
+        }
     }
     
     @Reducer(state: .equatable)
@@ -47,7 +53,7 @@ struct CategoriesList {
                     let result = await categoriesLoader.fetchCategories(CategoryLoaderDependencies())
                     switch result {
                     case let .success(categories):
-                        await send(.categoriesResponse(categories))
+                        await send(.categoriesResponse(categories: categories))
                         
                     case let .failure(error):
                         await send(.network(error: error))
@@ -66,25 +72,29 @@ struct CategoriesList {
                 return .none
                 
             case let .categoryViewTapped(category):
-                return .send(.check(category.status))
+                return .send(.checkStatus(category: category))
                 
-            case let .check(status):
-                switch status {
+            case let .checkStatus(category):
+                switch category.status {
                 case .free:
                     state.path.append(.fact(FactFeature.State()))
                     
                 case .paid:
-                    break
+                    state.alert = .showAd(id: category.id)
                     
                 case .comingSoon:
-                    break
+                    state.alert = .comingSoon(title: category.title)
                 }
                 return .none
                 
             case .path:
                 return .none
+                
+            case .alert:
+                return .none
             }
         }
+        .ifLet(\.$alert, action: \.alert)
         .forEach(\.path, action: \.path)
     }
 }
