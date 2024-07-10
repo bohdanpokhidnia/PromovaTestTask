@@ -40,7 +40,13 @@ struct FactView: View {
                                 FactRow(
                                     proxy: proxy,
                                     containerWidth: factRowWidth,
-                                    content: content
+                                    content: content,
+                                    leadingButtonTapped: {
+                                        store.send(.leadingButtonTapped)
+                                    },
+                                    trailingButtonTapped: {
+                                        store.send(.trailingButtonTapped)
+                                    }
                                 )
                                 .frame(width: factRowWidth, height: factRowHeight)
                                 .background(.factBackground)
@@ -48,6 +54,7 @@ struct FactView: View {
                                 .shadow(color: .factShadow, radius: 60, y: 20)
                                 .padding(.top, factRowTopPadding)
                             }
+                            .tag(store.category.content.index(id: content.id) ?? 0)
                     }
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))

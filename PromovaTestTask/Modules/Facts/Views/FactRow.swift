@@ -12,6 +12,8 @@ struct FactRow: View {
     var proxy: GeometryProxy?
     var containerWidth: CGFloat = .zero
     let content: CategoryContent
+    var leadingButtonTapped: () -> Void
+    var trailingButtonTapped: () -> Void
     
     private let imageHeightProportion: CGFloat = 234.0 / 700.0
     private let defaultImageWidth: CGFloat = 315.0
@@ -37,7 +39,7 @@ struct FactRow: View {
             
             HStack(spacing: 0) {
                 Button {
-                    
+                    leadingButtonTapped()
                 } label: {
                     Image(.factLeadingArrow)
                 }
@@ -45,7 +47,7 @@ struct FactRow: View {
                 Spacer()
                 
                 Button {
-                    
+                    trailingButtonTapped()
                 } label: {
                     Image(.factTrailingArrow)
                 }
@@ -72,7 +74,9 @@ struct FactRow: View {
 @available(iOS 17.0, *)
 #Preview("FactRow", traits: .sizeThatFitsLayout) {
     FactRow(
-        content: .mock
+        content: .mock,
+        leadingButtonTapped: { },
+        trailingButtonTapped: { }
     )
     .frame(height: 435)
 }

@@ -15,7 +15,7 @@ struct Category: Identifiable, Decodable {
     let image: String
     let order: Int
     let status: CategoryStatus
-    let content: [CategoryContent]
+    let content: /*[CategoryContent]*/ IdentifiedArrayOf<CategoryContent>
     
     enum CodingKeys: CodingKey {
         case title
@@ -34,7 +34,7 @@ struct Category: Identifiable, Decodable {
         image: String,
         order: Int,
         status: CategoryStatus,
-        content: [CategoryContent]
+        content: IdentifiedArrayOf<CategoryContent>
     ) {
         self.title = title
         self.description = description
@@ -52,7 +52,7 @@ struct Category: Identifiable, Decodable {
         self.image = try container.decode(String.self, forKey: .image)
         self.order = try container.decode(Int.self, forKey: .order)
         self.status = try container.decode(CategoryStatus.self, forKey: .status)
-        self.content = try container.decodeIfPresent([CategoryContent].self, forKey: .content) ?? []
+        self.content = IdentifiedArray(uniqueElements: try container.decodeIfPresent([CategoryContent].self, forKey: .content) ?? [])
     }
 }
 
