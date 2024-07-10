@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct PromovaTestTaskApp: App {
+    static var categoryListStore = Store(initialState: CategoriesList.State()) {
+        CategoriesList()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            CategoriesListView()
+            CategoriesListView(store: Self.categoryListStore)
                 .updateBackButton(resource: .navigationBackArrow)
                 .setupNavigationBar(titleAttributes: [
                     .foregroundColor: UIColor.navigationTitle,

@@ -6,22 +6,20 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct CategoriesListView: View {
-    private var categoriesStatus: [CategoryStatus] = [.free, .paid, .comingSoon]
+    var store: StoreOf<CategoriesList>
+    private let categoriesStatus: [CategoryStatus] = [.free, .paid, .comingSoon]
     
     var body: some View {
         NavigationStack {
             ScrollView {
                 LazyVStack(spacing: 16) {
                     ForEach(categoriesStatus, id: \.self) { (categoryStatus) in
-                        if categoryStatus == .free {
-                            NavigationLink {
-                                FactView()
-                            } label: {
-                                CategoryRow(categoryType: categoryStatus)
-                            }
-                        } else {
+                        NavigationLink {
+                            FactView(store: store.scope(state: \.factFeature, action: \.factFeature))
+                        } label: {
                             CategoryRow(categoryType: categoryStatus)
                         }
                     }
@@ -35,5 +33,11 @@ struct CategoriesListView: View {
 }
 
 #Preview {
-    CategoriesListView()
+    CategoriesListView(
+        store: Store(
+            initialState: CategoriesList.State()
+            ,reducer: {
+                CategoriesList()
+            })
+    )
 }

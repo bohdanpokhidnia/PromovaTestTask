@@ -18,6 +18,9 @@
 		F72B45262C3DA77E009CE4D9 /* PTSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F72B45252C3DA77E009CE4D9 /* PTSans-Regular.ttf */; };
 		F72B45282C3E4EC9009CE4D9 /* DeviceOrientationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B45272C3E4EC9009CE4D9 /* DeviceOrientationObserver.swift */; };
 		F72B452A2C3E5C56009CE4D9 /* IfLetLandscape.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B45292C3E5C56009CE4D9 /* IfLetLandscape.swift */; };
+		F72B452D2C3E6A12009CE4D9 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = F72B452C2C3E6A12009CE4D9 /* ComposableArchitecture */; };
+		F72B452F2C3E6BC4009CE4D9 /* CategoriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B452E2C3E6BC4009CE4D9 /* CategoriesList.swift */; };
+		F72B45312C3E7163009CE4D9 /* FactFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B45302C3E7163009CE4D9 /* FactFeature.swift */; };
 		F798EFCB2C3C3D0F00A3DF77 /* PromovaTestTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F798EFCA2C3C3D0F00A3DF77 /* PromovaTestTaskApp.swift */; };
 		F798EFCD2C3C3D0F00A3DF77 /* CategoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F798EFCC2C3C3D0F00A3DF77 /* CategoriesListView.swift */; };
 		F798EFCF2C3C3D1000A3DF77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F798EFCE2C3C3D1000A3DF77 /* Assets.xcassets */; };
@@ -33,10 +36,12 @@
 		F7220CA92C3D053200DCC48E /* FactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactView.swift; sourceTree = "<group>"; };
 		F72B451B2C3D8DAE009CE4D9 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		F72B451D2C3D8E5F009CE4D9 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
-		F72B45222C3DA75A009CE4D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F72B45222C3DA75A009CE4D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F72B45252C3DA77E009CE4D9 /* PTSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSans-Regular.ttf"; sourceTree = "<group>"; };
 		F72B45272C3E4EC9009CE4D9 /* DeviceOrientationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOrientationObserver.swift; sourceTree = "<group>"; };
 		F72B45292C3E5C56009CE4D9 /* IfLetLandscape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfLetLandscape.swift; sourceTree = "<group>"; };
+		F72B452E2C3E6BC4009CE4D9 /* CategoriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesList.swift; sourceTree = "<group>"; };
+		F72B45302C3E7163009CE4D9 /* FactFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactFeature.swift; sourceTree = "<group>"; };
 		F798EFC72C3C3D0F00A3DF77 /* PromovaTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PromovaTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F798EFCA2C3C3D0F00A3DF77 /* PromovaTestTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromovaTestTaskApp.swift; sourceTree = "<group>"; };
 		F798EFCC2C3C3D0F00A3DF77 /* CategoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListView.swift; sourceTree = "<group>"; };
@@ -49,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F72B452D2C3E6A12009CE4D9 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +117,7 @@
 		F7220CA82C3D051400DCC48E /* Facts */ = {
 			isa = PBXGroup;
 			children = (
+				F72B45302C3E7163009CE4D9 /* FactFeature.swift */,
 				F7220CA92C3D053200DCC48E /* FactView.swift */,
 			);
 			path = Facts;
@@ -129,6 +136,7 @@
 			children = (
 				F72B45242C3DA76D009CE4D9 /* Fonts */,
 				F798EFCE2C3C3D1000A3DF77 /* Assets.xcassets */,
+				F72B45222C3DA75A009CE4D9 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -160,7 +168,6 @@
 		F798EFC92C3C3D0F00A3DF77 /* PromovaTestTask */ = {
 			isa = PBXGroup;
 			children = (
-				F72B45222C3DA75A009CE4D9 /* Info.plist */,
 				F798EFCA2C3C3D0F00A3DF77 /* PromovaTestTaskApp.swift */,
 				F7220CA02C3C56F500DCC48E /* Core */,
 				F7220C992C3C503300DCC48E /* Extensions */,
@@ -184,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				F7220C962C3C452B00DCC48E /* Views */,
+				F72B452E2C3E6BC4009CE4D9 /* CategoriesList.swift */,
 				F798EFCC2C3C3D0F00A3DF77 /* CategoriesListView.swift */,
 			);
 			path = Categories;
@@ -214,6 +222,9 @@
 			dependencies = (
 			);
 			name = PromovaTestTask;
+			packageProductDependencies = (
+				F72B452C2C3E6A12009CE4D9 /* ComposableArchitecture */,
+			);
 			productName = PromovaTestTask;
 			productReference = F798EFC72C3C3D0F00A3DF77 /* PromovaTestTask.app */;
 			productType = "com.apple.product-type.application";
@@ -242,6 +253,9 @@
 				Base,
 			);
 			mainGroup = F798EFBE2C3C3D0F00A3DF77;
+			packageReferences = (
+				F72B452B2C3E6A12009CE4D9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = F798EFC82C3C3D0F00A3DF77 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -270,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7220C9C2C3C504800DCC48E /* Font.swift in Sources */,
+				F72B452F2C3E6BC4009CE4D9 /* CategoriesList.swift in Sources */,
 				F798EFCD2C3C3D0F00A3DF77 /* CategoriesListView.swift in Sources */,
 				F72B451E2C3D8E5F009CE4D9 /* View.swift in Sources */,
 				F7220CAA2C3D053200DCC48E /* FactView.swift in Sources */,
@@ -279,6 +294,7 @@
 				F7220C9F2C3C56D500DCC48E /* CategoryStatus.swift in Sources */,
 				F72B451C2C3D8DAE009CE4D9 /* UINavigationController.swift in Sources */,
 				F7220CA72C3C5F2F00DCC48E /* IfLetShadow.swift in Sources */,
+				F72B45312C3E7163009CE4D9 /* FactFeature.swift in Sources */,
 				F72B45282C3E4EC9009CE4D9 /* DeviceOrientationObserver.swift in Sources */,
 				F798EFCB2C3C3D0F00A3DF77 /* PromovaTestTaskApp.swift in Sources */,
 			);
@@ -417,7 +433,7 @@
 				DEVELOPMENT_TEAM = 3S8AVD2TKW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PromovaTestTask/Info.plist;
+				INFOPLIST_FILE = PromovaTestTask/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -452,7 +468,7 @@
 				DEVELOPMENT_TEAM = 3S8AVD2TKW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PromovaTestTask/Info.plist;
+				INFOPLIST_FILE = PromovaTestTask/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -498,6 +514,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F72B452B2C3E6A12009CE4D9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.11.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F72B452C2C3E6A12009CE4D9 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F72B452B2C3E6A12009CE4D9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F798EFBF2C3C3D0F00A3DF77 /* Project object */;
 }

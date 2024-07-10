@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct FactView: View {
+    var store: StoreOf<FactFeature>
     private let imageHeightProportion: CGFloat = 234.0 / 700.0
     private let containerHeightProportion: CGFloat = 435.0 / 700.0
     
@@ -86,6 +88,8 @@ struct FactView: View {
 
 #Preview {
     NavigationStack {
-        FactView()
+        FactView(store: Store(initialState: FactFeature.State()) {
+            FactFeature()
+        })
     }
 }
