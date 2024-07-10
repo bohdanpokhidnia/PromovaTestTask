@@ -8,6 +8,13 @@
 import SwiftUI
 
 extension View {
+    var safeArea: UIEdgeInsets {
+        guard let safeArea = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.keyWindow?.safeAreaInsets else {
+            return .zero
+        }
+        return safeArea
+    }
+    
     func updateBackButton(resource: ImageResource) -> some View {
         let image = UIImage(resource: resource)
             .withRenderingMode(.alwaysOriginal)
