@@ -38,10 +38,12 @@ struct CategoriesListView: View {
     NavigationStack {
         CategoriesListView(
             store: Store(
-                initialState: CategoriesList.State()
-                ,reducer: {
-                    CategoriesList()
-                })
+                initialState: CategoriesList.State(
+                    categories: [.mockFree, .mockPaid, .mockСomingSoon]
+                )
+            ) {
+                CategoriesList()
+            }
         )
     }
 }

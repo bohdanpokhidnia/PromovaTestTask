@@ -28,7 +28,25 @@ struct Category: Identifiable, Decodable {
 }
 
 extension Category {
-    static let mock = Category(
+    static let mockFree = Category(
+        title: "Mock title",
+        description: "Mock description",
+        image: "Mock image",
+        order: 0,
+        status: .free,
+        content: nil
+    )
+    
+    static let mockPaid = Category(
+        title: "Mock title",
+        description: "Mock description",
+        image: "Mock image",
+        order: 0,
+        status: .paid,
+        content: nil
+    )
+    
+    static let mockСomingSoon = Category(
         title: "Mock title",
         description: "Mock description",
         image: "Mock image",

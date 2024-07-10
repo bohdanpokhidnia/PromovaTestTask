@@ -28,15 +28,8 @@ struct CategoryRow: View {
                 Spacer()
                 
                 if category.status == .paid {
-                    HStack(spacing: 4) {
-                        Image(.lock)
-                            .frame(width: 10, height: 12)
-                        
-                        Text("Premium")
-                            .font(.rowTitle)
-                            .foregroundStyle(.categoryPaid)
-                    }
-                    .padding(.bottom, 2)
+                    PremiumView()
+                        .padding(.bottom, 2)
                 }
             }
             .padding(.top, 5)
@@ -71,8 +64,18 @@ struct CategoryRow: View {
 }
 
 @available(iOS 17.0, *)
-#Preview("CategoryRow", traits: .sizeThatFitsLayout) {
-    CategoryRow(category: .mock)
-        .frame(height: 100)
-        .padding(.horizontal, 15)
+#Preview("СomingSoon", traits: .sizeThatFitsLayout) {
+    VStack {
+        CategoryRow(category: .mockFree)
+            .frame(height: 100)
+            .padding(.horizontal, 15)
+        
+        CategoryRow(category: .mockPaid)
+            .frame(height: 100)
+            .padding(.horizontal, 15)
+        
+        CategoryRow(category: .mockСomingSoon)
+            .frame(height: 100)
+            .padding(.horizontal, 15)
+    }
 }
