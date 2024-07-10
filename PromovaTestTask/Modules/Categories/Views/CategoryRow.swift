@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct CategoryRow: View {
-    let categoryType: CategoryStatus
-    var backgroundColor: Color = .white
+    let category: Category
     
     var body: some View {
         HStack(alignment: .top, spacing: 0) {
@@ -18,17 +17,17 @@ struct CategoryRow: View {
                 .frame(width: 121, height: 90)
             
             VStack(alignment: .leading, spacing: 0) {
-                Text("Title")
+                Text(category.title)
                     .font(.rowTitle)
                     .foregroundStyle(.categoryTitle)
                 
-                Text("Subtitle")
+                Text(category.description)
                     .font(.rowSubtitle)
                     .foregroundStyle(.categorySubtitle)
                 
                 Spacer()
                 
-                if categoryType == .paid {
+                if category.status == .paid {
                     HStack(spacing: 4) {
                         Image(.lock)
                             .frame(width: 10, height: 12)
@@ -48,7 +47,7 @@ struct CategoryRow: View {
         .padding(5)
         .background(.categoryBackground)
         .overlay(alignment: .trailing) {
-            if categoryType == .comingSoon {
+            if category.status == .comingSoon {
                 Image(.comingSoon)
                     .resizable()
                     .scaledToFit()
@@ -56,14 +55,14 @@ struct CategoryRow: View {
             }
         }
         .overlay(content: {
-            if categoryType == .comingSoon {
+            if category.status == .comingSoon {
                 Rectangle()
                     .fill(.categoryComingSoon)
             }
         })
         .clipShape(RoundedRectangle(cornerRadius: 5))
         .ifLetShadow(
-            isDisplayShadow: categoryType != .comingSoon,
+            isDisplayShadow: category.status != .comingSoon,
             color: .categoryShadow,
             radius: 2,
             y: 2
@@ -73,7 +72,7 @@ struct CategoryRow: View {
 
 @available(iOS 17.0, *)
 #Preview("CategoryRow", traits: .sizeThatFitsLayout) {
-    CategoryRow(categoryType: .comingSoon)
+    CategoryRow(category: .mock)
         .frame(height: 100)
         .padding(.horizontal, 15)
 }

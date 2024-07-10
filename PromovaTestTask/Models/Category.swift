@@ -1,0 +1,39 @@
+//
+//  Category.swift
+//  PromovaTestTask
+//
+//  Created by Bohdan Pokhidnia on 10.07.2024.
+//
+
+import SwiftUI
+import ComposableArchitecture
+
+struct Category: Identifiable, Decodable {
+    var id = UUID()
+    let title: String
+    let description: String
+    let image: String
+    let order: Int
+    let status: CategoryStatus
+    let content: [CategoryContent]?
+    
+    enum CodingKeys: CodingKey {
+        case title
+        case description
+        case image
+        case order
+        case status
+        case content
+    }
+}
+
+extension Category {
+    static let mock = Category(
+        title: "Mock title",
+        description: "Mock description",
+        image: "Mock image",
+        order: 0,
+        status: .comingSoon,
+        content: nil
+    )
+}

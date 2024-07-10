@@ -7,7 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F70603D52C3E876700D16DF9 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70603D42C3E876700D16DF9 /* Category.swift */; };
+		F70603D72C3E87AA00D16DF9 /* CategoryContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70603D62C3E87AA00D16DF9 /* CategoryContent.swift */; };
 		F70603DA2C3E889300D16DF9 /* DeviceOrientationObserverLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70603D92C3E889300D16DF9 /* DeviceOrientationObserverLive.swift */; };
+		F70603DD2C3E8A3C00D16DF9 /* CategoriesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70603DC2C3E8A3C00D16DF9 /* CategoriesLoader.swift */; };
+		F70603DF2C3E8B4700D16DF9 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70603DE2C3E8B4700D16DF9 /* Config.swift */; };
+		F70603E22C3E8B8800D16DF9 /* ConfigLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70603E12C3E8B8800D16DF9 /* ConfigLive.swift */; };
+		F70603E52C3E8D0B00D16DF9 /* CategoriesLoaderLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70603E42C3E8D0B00D16DF9 /* CategoriesLoaderLive.swift */; };
+		F70603E72C3E8FA300D16DF9 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70603E62C3E8FA300D16DF9 /* RequestBuilder.swift */; };
+		F70603EA2C3E90A100D16DF9 /* HTTPRequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70603E92C3E90A100D16DF9 /* HTTPRequestMethod.swift */; };
+		F70603EC2C3E90EB00D16DF9 /* RequestBuilderLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70603EB2C3E90EB00D16DF9 /* RequestBuilderLive.swift */; };
 		F7220C982C3C454000DCC48E /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7220C972C3C453F00DCC48E /* CategoryRow.swift */; };
 		F7220C9C2C3C504800DCC48E /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7220C9B2C3C504800DCC48E /* Font.swift */; };
 		F7220C9F2C3C56D500DCC48E /* CategoryStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7220C9E2C3C56D500DCC48E /* CategoryStatus.swift */; };
@@ -29,7 +38,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F70603D42C3E876700D16DF9 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		F70603D62C3E87AA00D16DF9 /* CategoryContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContent.swift; sourceTree = "<group>"; };
 		F70603D92C3E889300D16DF9 /* DeviceOrientationObserverLive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOrientationObserverLive.swift; sourceTree = "<group>"; };
+		F70603DC2C3E8A3C00D16DF9 /* CategoriesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesLoader.swift; sourceTree = "<group>"; };
+		F70603DE2C3E8B4700D16DF9 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		F70603E12C3E8B8800D16DF9 /* ConfigLive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigLive.swift; sourceTree = "<group>"; };
+		F70603E42C3E8D0B00D16DF9 /* CategoriesLoaderLive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesLoaderLive.swift; sourceTree = "<group>"; };
+		F70603E62C3E8FA300D16DF9 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		F70603E92C3E90A100D16DF9 /* HTTPRequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestMethod.swift; sourceTree = "<group>"; };
+		F70603EB2C3E90EB00D16DF9 /* RequestBuilderLive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilderLive.swift; sourceTree = "<group>"; };
 		F7220C972C3C453F00DCC48E /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 		F7220C9B2C3C504800DCC48E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		F7220C9E2C3C56D500DCC48E /* CategoryStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStatus.swift; sourceTree = "<group>"; };
@@ -72,6 +90,43 @@
 			path = DeviceOrientationObserver;
 			sourceTree = "<group>";
 		};
+		F70603DB2C3E8A1C00D16DF9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F70603E82C3E908D00D16DF9 /* RequestBuilder */,
+				F70603E32C3E8D0300D16DF9 /* CategoriesLoader */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F70603E02C3E8B7A00D16DF9 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				F70603DE2C3E8B4700D16DF9 /* Config.swift */,
+				F70603E12C3E8B8800D16DF9 /* ConfigLive.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		F70603E32C3E8D0300D16DF9 /* CategoriesLoader */ = {
+			isa = PBXGroup;
+			children = (
+				F70603DC2C3E8A3C00D16DF9 /* CategoriesLoader.swift */,
+				F70603E42C3E8D0B00D16DF9 /* CategoriesLoaderLive.swift */,
+			);
+			path = CategoriesLoader;
+			sourceTree = "<group>";
+		};
+		F70603E82C3E908D00D16DF9 /* RequestBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				F70603E92C3E90A100D16DF9 /* HTTPRequestMethod.swift */,
+				F70603E62C3E8FA300D16DF9 /* RequestBuilder.swift */,
+				F70603EB2C3E90EB00D16DF9 /* RequestBuilderLive.swift */,
+			);
+			path = RequestBuilder;
+			sourceTree = "<group>";
+		};
 		F7220C962C3C452B00DCC48E /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				F7220C9E2C3C56D500DCC48E /* CategoryStatus.swift */,
+				F70603D42C3E876700D16DF9 /* Category.swift */,
+				F70603D62C3E87AA00D16DF9 /* CategoryContent.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -109,8 +166,10 @@
 		F7220CA02C3C56F500DCC48E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F7220C992C3C503300DCC48E /* Extensions */,
 				F7220CA52C3C5F1900DCC48E /* ViewModifiers */,
 				F70603D82C3E884F00D16DF9 /* DeviceOrientationObserver */,
+				F70603E02C3E8B7A00D16DF9 /* Config */,
 				F7220CA22C3C572300DCC48E /* FallbackCase.swift */,
 			);
 			path = Core;
@@ -181,7 +240,7 @@
 			children = (
 				F798EFCA2C3C3D0F00A3DF77 /* PromovaTestTaskApp.swift */,
 				F7220CA02C3C56F500DCC48E /* Core */,
-				F7220C992C3C503300DCC48E /* Extensions */,
+				F70603DB2C3E8A1C00D16DF9 /* Services */,
 				F7220C9D2C3C56C800DCC48E /* Models */,
 				F798EFD92C3C432300A3DF77 /* Modules */,
 				F72B45232C3DA765009CE4D9 /* Resources */,
@@ -297,16 +356,25 @@
 				F7220C9C2C3C504800DCC48E /* Font.swift in Sources */,
 				F72B452F2C3E6BC4009CE4D9 /* CategoriesList.swift in Sources */,
 				F798EFCD2C3C3D0F00A3DF77 /* CategoriesListView.swift in Sources */,
+				F70603EA2C3E90A100D16DF9 /* HTTPRequestMethod.swift in Sources */,
 				F72B451E2C3D8E5F009CE4D9 /* View.swift in Sources */,
+				F70603E52C3E8D0B00D16DF9 /* CategoriesLoaderLive.swift in Sources */,
+				F70603DF2C3E8B4700D16DF9 /* Config.swift in Sources */,
 				F7220CAA2C3D053200DCC48E /* FactView.swift in Sources */,
+				F70603E72C3E8FA300D16DF9 /* RequestBuilder.swift in Sources */,
 				F7220C982C3C454000DCC48E /* CategoryRow.swift in Sources */,
 				F7220CA32C3C572300DCC48E /* FallbackCase.swift in Sources */,
 				F72B452A2C3E5C56009CE4D9 /* IfLetLandscape.swift in Sources */,
 				F7220C9F2C3C56D500DCC48E /* CategoryStatus.swift in Sources */,
+				F70603D72C3E87AA00D16DF9 /* CategoryContent.swift in Sources */,
 				F72B451C2C3D8DAE009CE4D9 /* UINavigationController.swift in Sources */,
 				F7220CA72C3C5F2F00DCC48E /* IfLetShadow.swift in Sources */,
+				F70603DD2C3E8A3C00D16DF9 /* CategoriesLoader.swift in Sources */,
 				F70603DA2C3E889300D16DF9 /* DeviceOrientationObserverLive.swift in Sources */,
+				F70603D52C3E876700D16DF9 /* Category.swift in Sources */,
+				F70603EC2C3E90EB00D16DF9 /* RequestBuilderLive.swift in Sources */,
 				F72B45312C3E7163009CE4D9 /* FactFeature.swift in Sources */,
+				F70603E22C3E8B8800D16DF9 /* ConfigLive.swift in Sources */,
 				F72B45282C3E4EC9009CE4D9 /* DeviceOrientationObserver.swift in Sources */,
 				F798EFCB2C3C3D0F00A3DF77 /* PromovaTestTaskApp.swift in Sources */,
 			);

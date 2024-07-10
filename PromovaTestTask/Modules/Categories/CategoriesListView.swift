@@ -10,17 +10,16 @@ import ComposableArchitecture
 
 struct CategoriesListView: View {
     var store: StoreOf<CategoriesList>
-    private let categoriesStatus: [CategoryStatus] = [.free, .paid, .comingSoon]
     
     var body: some View {
         NavigationStack {
             ScrollView {
                 LazyVStack(spacing: 16) {
-                    ForEach(categoriesStatus, id: \.self) { (categoryStatus) in
+                    ForEach(store.categories) { (category) in
                         NavigationLink {
                             FactView(store: store.scope(state: \.factFeature, action: \.factFeature))
                         } label: {
-                            CategoryRow(categoryType: categoryStatus)
+                            CategoryRow(category: category)
                         }
                     }
                 }
@@ -28,16 +27,21 @@ struct CategoriesListView: View {
                 .padding(.horizontal, 15)
             }
             .background(.appBackground)
+            .onAppear {
+                store.send(.onAppear)
+            }
         }
     }
 }
 
 #Preview {
-    CategoriesListView(
-        store: Store(
-            initialState: CategoriesList.State()
-            ,reducer: {
-                CategoriesList()
-            })
-    )
+    NavigationStack {
+        CategoriesListView(
+            store: Store(
+                initialState: CategoriesList.State()
+                ,reducer: {
+                    CategoriesList()
+                })
+        )
+    }
 }
