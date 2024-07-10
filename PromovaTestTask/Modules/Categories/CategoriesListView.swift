@@ -16,10 +16,18 @@ struct CategoriesListView: View {
             ScrollView {
                 LazyVStack(spacing: 16) {
                     ForEach(store.categories) { (category) in
-                        NavigationLink {
-                            FactView(store: store.scope(state: \.factFeature, action: \.factFeature))
-                        } label: {
-                            CategoryRow(category: category)
+                        if category.status == .free {
+                            NavigationLink {
+                                FactView(store: store.scope(state: \.factFeature, action: \.factFeature))
+                            } label: {
+                                CategoryRow(category: category)
+                            }
+                        } else {
+                            Button {
+                                
+                            } label: {
+                                CategoryRow(category: category)
+                            }
                         }
                     }
                 }
