@@ -17,28 +17,16 @@ struct FactFeature {
     }
     
     enum Action {
-        case leadingButtonTapped
-        case trailingButtonTapped
         case decreaseCurrentTabIndex
         case increaseCurrentTabIndex
+        case leadingButtonTapped
         case selectTabIndex(Int)
+        case trailingButtonTapped
     }
     
     var body: some ReducerOf<Self> {
         Reduce { (state, action) in
             switch action {
-            case .leadingButtonTapped:
-                guard state.currentTabIndex >= 0 else {
-                    return .none
-                }
-                return .send(.decreaseCurrentTabIndex)
-                
-            case .trailingButtonTapped:
-                guard state.currentTabIndex < state.category.content.count - 1 else {
-                    return .none
-                }
-                return .send(.increaseCurrentTabIndex)
-                
             case .decreaseCurrentTabIndex:
                 state.currentTabIndex -= 1
                 return .none
@@ -47,9 +35,21 @@ struct FactFeature {
                 state.currentTabIndex += 1
                 return .none
                 
+            case .leadingButtonTapped:
+                guard state.currentTabIndex >= 0 else {
+                    return .none
+                }
+                return .send(.decreaseCurrentTabIndex)
+                
             case let .selectTabIndex(index):
                 state.currentTabIndex = index
                 return .none
+                
+            case .trailingButtonTapped:
+                guard state.currentTabIndex < state.category.content.count - 1 else {
+                    return .none
+                }
+                return .send(.increaseCurrentTabIndex)
             }
         }
     }
