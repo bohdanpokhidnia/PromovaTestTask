@@ -13,7 +13,7 @@ struct FactView: View {
     private let imageHeightProportion: CGFloat = 234.0 / 700.0
     private let containerHeightProportion: CGFloat = 435.0 / 700.0
     
-    @Environment(\.deviceOrientationObserver) private var deviceOrientationObserver
+    @Dependency(\.deviceOrientationObserver) private var deviceOrientationObserver
     
     var body: some View {
         GeometryReader { (proxy) in

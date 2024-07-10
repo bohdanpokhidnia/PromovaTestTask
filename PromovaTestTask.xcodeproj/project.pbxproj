@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F70603DA2C3E889300D16DF9 /* DeviceOrientationObserverLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70603D92C3E889300D16DF9 /* DeviceOrientationObserverLive.swift */; };
 		F7220C982C3C454000DCC48E /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7220C972C3C453F00DCC48E /* CategoryRow.swift */; };
 		F7220C9C2C3C504800DCC48E /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7220C9B2C3C504800DCC48E /* Font.swift */; };
 		F7220C9F2C3C56D500DCC48E /* CategoryStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7220C9E2C3C56D500DCC48E /* CategoryStatus.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F70603D92C3E889300D16DF9 /* DeviceOrientationObserverLive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOrientationObserverLive.swift; sourceTree = "<group>"; };
 		F7220C972C3C453F00DCC48E /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 		F7220C9B2C3C504800DCC48E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		F7220C9E2C3C56D500DCC48E /* CategoryStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStatus.swift; sourceTree = "<group>"; };
@@ -61,6 +63,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F70603D82C3E884F00D16DF9 /* DeviceOrientationObserver */ = {
+			isa = PBXGroup;
+			children = (
+				F72B45272C3E4EC9009CE4D9 /* DeviceOrientationObserver.swift */,
+				F70603D92C3E889300D16DF9 /* DeviceOrientationObserverLive.swift */,
+			);
+			path = DeviceOrientationObserver;
+			sourceTree = "<group>";
+		};
 		F7220C962C3C452B00DCC48E /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,8 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				F7220CA52C3C5F1900DCC48E /* ViewModifiers */,
+				F70603D82C3E884F00D16DF9 /* DeviceOrientationObserver */,
 				F7220CA22C3C572300DCC48E /* FallbackCase.swift */,
-				F72B45272C3E4EC9009CE4D9 /* DeviceOrientationObserver.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -294,6 +305,7 @@
 				F7220C9F2C3C56D500DCC48E /* CategoryStatus.swift in Sources */,
 				F72B451C2C3D8DAE009CE4D9 /* UINavigationController.swift in Sources */,
 				F7220CA72C3C5F2F00DCC48E /* IfLetShadow.swift in Sources */,
+				F70603DA2C3E889300D16DF9 /* DeviceOrientationObserverLive.swift in Sources */,
 				F72B45312C3E7163009CE4D9 /* FactFeature.swift in Sources */,
 				F72B45282C3E4EC9009CE4D9 /* DeviceOrientationObserver.swift in Sources */,
 				F798EFCB2C3C3D0F00A3DF77 /* PromovaTestTaskApp.swift in Sources */,
