@@ -12,6 +12,7 @@ import ComposableArchitecture
 struct CategoriesList {
     @ObservableState
     struct State {
+        var isLoading: Bool = false
         var factFeature = FactFeature.State()
         var categories: IdentifiedArrayOf<Category> = []
     }
@@ -19,6 +20,7 @@ struct CategoriesList {
     enum Action {
         case onAppear
         case categoriesResponse([Category])
+        case network(error: NetworkError)
         case factFeature(FactFeature.Action)
     }
     
@@ -31,6 +33,7 @@ struct CategoriesList {
                 guard state.categories.isEmpty else {
                     return .none
                 }
+                state.isLoading = true
                 state.categories.removeAll()
                 
                 return .run { (send) in
@@ -40,13 +43,19 @@ struct CategoriesList {
                         await send(.categoriesResponse(categories))
                         
                     case let .failure(error):
-                        print("[dev] \(error)")
+                        await send(.network(error: error))
                     }
                 }
                 
             case let .categoriesResponse(categories):
                 let sortedCategories = categories.sorted(by: { $0.order < $1.order })
+                state.isLoading = false
                 state.categories = IdentifiedArray(uniqueElements: sortedCategories)
+                return .none
+                
+            case let .network(error):
+                state.isLoading = false
+                print("[dev] \(error.localizedDescription)")
                 return .none
                 
             case .factFeature:

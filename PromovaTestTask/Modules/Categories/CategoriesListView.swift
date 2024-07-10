@@ -33,8 +33,14 @@ struct CategoriesListView: View {
                 }
                 .padding(.top, 30)
                 .padding(.horizontal, 15)
+                .opacity(store.isLoading ? 0 : 1)
             }
             .background(.appBackground)
+            .overlay(content: {
+                if store.isLoading {
+                    ProgressView()
+                }
+            })
             .onAppear {
                 store.send(.onAppear)
             }
@@ -47,6 +53,7 @@ struct CategoriesListView: View {
         CategoriesListView(
             store: Store(
                 initialState: CategoriesList.State(
+                    isLoading: false,
                     categories: [.mockFree, .mockPaid, .mockСomingSoon]
                 )
             ) {
