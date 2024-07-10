@@ -20,12 +20,14 @@ struct CategoriesList {
     
     enum Action {
         case onAppear
+        case order(categories: [Category])
         case categoriesResponse(categories: [Category])
         case network(error: NetworkError)
         case categoryViewTapped(category: Category)
         case checkStatus(category: Category)
         case path(StackActionOf<Path>)
         case alert(PresentationAction<Alert>)
+        case timerFire(category: Category)
         
         enum Alert {
             case showAd(id: UUID)
@@ -37,7 +39,12 @@ struct CategoriesList {
         case fact(FactFeature)
     }
     
+    enum CancelID {
+        case timer
+    }
+    
     @Dependency(\.categoriesLoader) private var categoriesLoader
+    @Dependency(\.continuousClock) var clock
     
     var body: some ReducerOf<Self> {
         Reduce { (state, action) in
@@ -53,17 +60,20 @@ struct CategoriesList {
                     let result = await categoriesLoader.fetchCategories(CategoryLoaderDependencies())
                     switch result {
                     case let .success(categories):
-                        await send(.categoriesResponse(categories: categories))
+                        await send(.order(categories: categories))
                         
                     case let .failure(error):
                         await send(.network(error: error))
                     }
                 }
                 
+            case let .order(categories):
+                let orderedCategories = categories.sorted(by: { $0.order < $1.order })
+                return .send(.categoriesResponse(categories: orderedCategories))
+                
             case let .categoriesResponse(categories):
-                let sortedCategories = categories.sorted(by: { $0.order < $1.order })
                 state.isLoading = false
-                state.categories = IdentifiedArray(uniqueElements: sortedCategories)
+                state.categories = IdentifiedArray(uniqueElements: categories)
                 return .none
                 
             case let .network(error):
@@ -77,7 +87,7 @@ struct CategoriesList {
             case let .checkStatus(category):
                 switch category.status {
                 case .free:
-                    state.path.append(.fact(FactFeature.State()))
+                    state.path.append(.fact(FactFeature.State(category: category)))
                     
                 case .paid:
                     state.alert = .showAd(id: category.id)
@@ -89,6 +99,24 @@ struct CategoriesList {
                 
             case .path:
                 return .none
+                
+            case let .alert(.presented(.showAd(id))):
+                guard let category = state.categories[id: id] else {
+                    return .none
+                }
+                state.isLoading = true
+                
+                return .run { (send) in
+                    for await _ in clock.timer(interval: .seconds(2)) {
+                        await send(.timerFire(category: category))
+                    }
+                }
+                .cancellable(id: CancelID.timer)
+                
+            case let .timerFire(category):
+                state.isLoading = false
+                state.path.append(.fact(FactFeature.State(category: category)))
+                return .cancel(id: CancelID.timer)
                 
             case .alert:
                 return .none

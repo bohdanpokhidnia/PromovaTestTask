@@ -88,7 +88,7 @@ struct FactView: View {
 
 #Preview {
     NavigationStack {
-        FactView(store: Store(initialState: FactFeature.State()) {
+        FactView(store: Store(initialState: FactFeature.State(category: .mockFree)) {
             FactFeature()
         })
     }

@@ -27,6 +27,14 @@ struct Category: Identifiable, Decodable {
     }
 }
 
+// MARK: - Equatable
+
+extension Category: Equatable {
+    static func == (lhs: Category, rhs: Category) -> Bool {
+        lhs.id == rhs.id
+    }
+}
+
 extension Category {
     static let mockFree = Category(
         title: "Mock title",

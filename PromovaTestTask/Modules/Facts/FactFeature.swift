@@ -12,7 +12,7 @@ import ComposableArchitecture
 struct FactFeature {
     @ObservableState
     struct State: Equatable {
-        
+        let category: Category
     }
     
     enum Action {
