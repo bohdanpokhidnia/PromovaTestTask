@@ -73,6 +73,7 @@ extension Category {
         status: .free,
         content: [
             .mock,
+            .mock1,
         ]
     )
     

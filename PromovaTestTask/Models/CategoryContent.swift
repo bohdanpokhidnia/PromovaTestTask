@@ -23,4 +23,9 @@ extension CategoryContent {
         fact: "Scholars have argued over the metaphysical interpretation of Dorothy’s pooch, Toto, in the Wizard of Oz. One theory postulates that Toto represents Anubis, the dog-headed Egyptian god of death, because Toto consistently keeps Dorothy from safely returning home.",
         image: "https://picsum.photos/300/200"
     )
+    
+    static let mock1 = CategoryContent(
+        fact: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus enim.",
+        image: "https://picsum.photos/300/200"
+    )
 }
