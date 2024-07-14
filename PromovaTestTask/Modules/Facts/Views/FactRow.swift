@@ -10,10 +10,11 @@ import ComposableArchitecture
 
 struct FactRow: View {
     var proxy: GeometryProxy?
-    var containerWidth: CGFloat = .zero
+    var containerWidth: CGFloat?
     let content: CategoryContent
     var leadingButtonTapped: () -> Void
     var trailingButtonTapped: () -> Void
+    var shareButtonTapped: () -> Void
     
     private let imageHeightProportion: CGFloat = 234.0 / 700.0
     private let defaultImageWidth: CGFloat = 315.0
@@ -54,11 +55,22 @@ struct FactRow: View {
             }
             .padding(.horizontal, 22)
             .padding(.bottom, 20)
+            .overlay(alignment: .top) {
+                Button {
+                    shareButtonTapped()
+                } label: {
+                    Image(systemName: "square.and.arrow.up")
+                        .resizable()
+                        .scaledToFit()
+                }
+                .frame(height: 48)
+                .foregroundStyle(.black)
+            }
         }
     }
     
     var imageWidth: CGFloat {
-        let width = containerWidth - (imagePadding * 2)
+        let width = (containerWidth ?? .infinity) - (imagePadding * 2)
         return width
     }
     
@@ -76,7 +88,8 @@ struct FactRow: View {
     FactRow(
         content: .mock,
         leadingButtonTapped: { },
-        trailingButtonTapped: { }
+        trailingButtonTapped: { },
+        shareButtonTapped: { }
     )
     .frame(height: 435)
 }

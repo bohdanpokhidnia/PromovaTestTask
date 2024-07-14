@@ -35,6 +35,9 @@
 		F72B452D2C3E6A12009CE4D9 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = F72B452C2C3E6A12009CE4D9 /* ComposableArchitecture */; };
 		F72B452F2C3E6BC4009CE4D9 /* CategoriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B452E2C3E6BC4009CE4D9 /* CategoriesList.swift */; };
 		F72B45312C3E7163009CE4D9 /* FactFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B45302C3E7163009CE4D9 /* FactFeature.swift */; };
+		F73E5F062C43C7E000693646 /* SharedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E5F052C43C7E000693646 /* SharedItem.swift */; };
+		F73E5F082C43C95500693646 /* ActivityFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E5F072C43C95500693646 /* ActivityFeature.swift */; };
+		F772D9A12C43C6410057546C /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772D9A02C43C6410057546C /* ActivityView.swift */; };
 		F778F73E2C3F0CC50033CB32 /* EmptyFactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F778F73D2C3F0CC50033CB32 /* EmptyFactView.swift */; };
 		F798EFCB2C3C3D0F00A3DF77 /* PromovaTestTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F798EFCA2C3C3D0F00A3DF77 /* PromovaTestTaskApp.swift */; };
 		F798EFCD2C3C3D0F00A3DF77 /* CategoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F798EFCC2C3C3D0F00A3DF77 /* CategoriesListView.swift */; };
@@ -72,6 +75,9 @@
 		F72B45272C3E4EC9009CE4D9 /* DeviceOrientationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOrientationObserver.swift; sourceTree = "<group>"; };
 		F72B452E2C3E6BC4009CE4D9 /* CategoriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesList.swift; sourceTree = "<group>"; };
 		F72B45302C3E7163009CE4D9 /* FactFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactFeature.swift; sourceTree = "<group>"; };
+		F73E5F052C43C7E000693646 /* SharedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedItem.swift; sourceTree = "<group>"; };
+		F73E5F072C43C95500693646 /* ActivityFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFeature.swift; sourceTree = "<group>"; };
+		F772D9A02C43C6410057546C /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		F778F73D2C3F0CC50033CB32 /* EmptyFactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFactView.swift; sourceTree = "<group>"; };
 		F798EFC72C3C3D0F00A3DF77 /* PromovaTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PromovaTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F798EFCA2C3C3D0F00A3DF77 /* PromovaTestTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromovaTestTaskApp.swift; sourceTree = "<group>"; };
@@ -196,6 +202,7 @@
 				F70603D42C3E876700D16DF9 /* Category.swift */,
 				F7220C9E2C3C56D500DCC48E /* CategoryStatus.swift */,
 				F70603D62C3E87AA00D16DF9 /* CategoryContent.swift */,
+				F73E5F052C43C7E000693646 /* SharedItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,6 +266,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		F772D99F2C43C6300057546C /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				F73E5F072C43C95500693646 /* ActivityFeature.swift */,
+				F772D9A02C43C6410057546C /* ActivityView.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
 		F798EFBE2C3C3D0F00A3DF77 = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +329,7 @@
 			children = (
 				F798EFD82C3C42BA00A3DF77 /* Categories */,
 				F7220CA82C3D051400DCC48E /* Facts */,
+				F772D99F2C43C6300057546C /* Activity */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -420,15 +437,18 @@
 				F7C0ED382C3EDD6700F6877B /* FactRow.swift in Sources */,
 				F7220C9F2C3C56D500DCC48E /* CategoryStatus.swift in Sources */,
 				F70603D72C3E87AA00D16DF9 /* CategoryContent.swift in Sources */,
+				F73E5F062C43C7E000693646 /* SharedItem.swift in Sources */,
 				F72B451C2C3D8DAE009CE4D9 /* UINavigationController.swift in Sources */,
 				F7220CA72C3C5F2F00DCC48E /* IfLetShadow.swift in Sources */,
 				F70603EE2C3E9B5600D16DF9 /* PremiumView.swift in Sources */,
 				F70603DD2C3E8A3C00D16DF9 /* CategoriesLoader.swift in Sources */,
 				F70603DA2C3E889300D16DF9 /* DeviceOrientationObserverLive.swift in Sources */,
 				F70603D52C3E876700D16DF9 /* Category.swift in Sources */,
+				F73E5F082C43C95500693646 /* ActivityFeature.swift in Sources */,
 				F70603EC2C3E90EB00D16DF9 /* RequestBuilderLive.swift in Sources */,
 				F72B45312C3E7163009CE4D9 /* FactFeature.swift in Sources */,
 				F70603E22C3E8B8800D16DF9 /* ConfigLive.swift in Sources */,
+				F772D9A12C43C6410057546C /* ActivityView.swift in Sources */,
 				F70603F02C3E9E4300D16DF9 /* NetworkError.swift in Sources */,
 				F72B45282C3E4EC9009CE4D9 /* DeviceOrientationObserver.swift in Sources */,
 				F798EFCB2C3C3D0F00A3DF77 /* PromovaTestTaskApp.swift in Sources */,

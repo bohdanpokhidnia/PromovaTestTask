@@ -46,6 +46,9 @@ struct FactView: View {
                                     },
                                     trailingButtonTapped: {
                                         store.send(.trailingButtonTapped)
+                                    },
+                                    shareButtonTapped: {
+                                        store.send(.shareButtonTapped)
                                     }
                                 )
                                 .frame(width: factRowWidth, height: factRowHeight)
@@ -66,6 +69,9 @@ struct FactView: View {
                         EmptyFactView(factCategoryTitle: store.category.title)
                     }
                 })
+            }
+            .sheet(item: $store.scope(state: \.activity, action: \.activity)) { (store) in
+                ActivityView(store: store)
             }
         }
     }
