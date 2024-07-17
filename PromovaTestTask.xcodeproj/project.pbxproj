@@ -44,7 +44,26 @@
 		F798EFCF2C3C3D1000A3DF77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F798EFCE2C3C3D1000A3DF77 /* Assets.xcassets */; };
 		F798EFD22C3C3D1000A3DF77 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F798EFD12C3C3D1000A3DF77 /* Preview Assets.xcassets */; };
 		F7C0ED382C3EDD6700F6877B /* FactRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C0ED372C3EDD6700F6877B /* FactRow.swift */; };
+		F7D13E672C46BEE700CD0582 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F7D13E662C46BEE700CD0582 /* RealmSwift */; };
+		F7D13E6C2C46C02900CD0582 /* CategoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D13E6B2C46C02900CD0582 /* CategoryObject.swift */; };
+		F7D13E702C46C23A00CD0582 /* CategoryContentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D13E6F2C46C23A00CD0582 /* CategoryContentObject.swift */; };
+		F7D13E722C46C31000CD0582 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D13E712C46C31000CD0582 /* LocalStorage.swift */; };
+		F7D13E752C46C3ED00CD0582 /* LocalStorageLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D13E742C46C3ED00CD0582 /* LocalStorageLive.swift */; };
+		F7D13E772C46C4B200CD0582 /* LocalStorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D13E762C46C4B200CD0582 /* LocalStorageError.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F7D13E692C46BF0D00CD0582 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F70603D42C3E876700D16DF9 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -85,6 +104,11 @@
 		F798EFCE2C3C3D1000A3DF77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F798EFD12C3C3D1000A3DF77 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F7C0ED372C3EDD6700F6877B /* FactRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactRow.swift; sourceTree = "<group>"; };
+		F7D13E6B2C46C02900CD0582 /* CategoryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryObject.swift; sourceTree = "<group>"; };
+		F7D13E6F2C46C23A00CD0582 /* CategoryContentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentObject.swift; sourceTree = "<group>"; };
+		F7D13E712C46C31000CD0582 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		F7D13E742C46C3ED00CD0582 /* LocalStorageLive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageLive.swift; sourceTree = "<group>"; };
+		F7D13E762C46C4B200CD0582 /* LocalStorageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7D13E672C46BEE700CD0582 /* RealmSwift in Frameworks */,
 				F72B452D2C3E6A12009CE4D9 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				F70603E32C3E8D0300D16DF9 /* CategoriesLoader */,
+				F7D13E732C46C3E000CD0582 /* LocalStorage */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -149,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				F70603EF2C3E9E4300D16DF9 /* NetworkError.swift */,
+				F7D13E762C46C4B200CD0582 /* LocalStorageError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -199,9 +226,9 @@
 		F7220C9D2C3C56C800DCC48E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F70603D42C3E876700D16DF9 /* Category.swift */,
+				F7D13E6D2C46C02F00CD0582 /* Category */,
+				F7D13E6E2C46C22E00CD0582 /* CategoryContent */,
 				F7220C9E2C3C56D500DCC48E /* CategoryStatus.swift */,
-				F70603D62C3E87AA00D16DF9 /* CategoryContent.swift */,
 				F73E5F052C43C7E000693646 /* SharedItem.swift */,
 			);
 			path = Models;
@@ -343,6 +370,33 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		F7D13E6D2C46C02F00CD0582 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				F70603D42C3E876700D16DF9 /* Category.swift */,
+				F7D13E6B2C46C02900CD0582 /* CategoryObject.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		F7D13E6E2C46C22E00CD0582 /* CategoryContent */ = {
+			isa = PBXGroup;
+			children = (
+				F70603D62C3E87AA00D16DF9 /* CategoryContent.swift */,
+				F7D13E6F2C46C23A00CD0582 /* CategoryContentObject.swift */,
+			);
+			path = CategoryContent;
+			sourceTree = "<group>";
+		};
+		F7D13E732C46C3E000CD0582 /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				F7D13E712C46C31000CD0582 /* LocalStorage.swift */,
+				F7D13E742C46C3ED00CD0582 /* LocalStorageLive.swift */,
+			);
+			path = LocalStorage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -353,6 +407,7 @@
 				F798EFC32C3C3D0F00A3DF77 /* Sources */,
 				F798EFC42C3C3D0F00A3DF77 /* Frameworks */,
 				F798EFC52C3C3D0F00A3DF77 /* Resources */,
+				F7D13E692C46BF0D00CD0582 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -361,6 +416,7 @@
 			name = PromovaTestTask;
 			packageProductDependencies = (
 				F72B452C2C3E6A12009CE4D9 /* ComposableArchitecture */,
+				F7D13E662C46BEE700CD0582 /* RealmSwift */,
 			);
 			productName = PromovaTestTask;
 			productReference = F798EFC72C3C3D0F00A3DF77 /* PromovaTestTask.app */;
@@ -392,6 +448,7 @@
 			mainGroup = F798EFBE2C3C3D0F00A3DF77;
 			packageReferences = (
 				F72B452B2C3E6A12009CE4D9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				F7D13E632C46BEE700CD0582 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = F798EFC82C3C3D0F00A3DF77 /* Products */;
 			projectDirPath = "";
@@ -429,6 +486,7 @@
 				F70603E52C3E8D0B00D16DF9 /* CategoriesLoaderLive.swift in Sources */,
 				F70603DF2C3E8B4700D16DF9 /* Config.swift in Sources */,
 				F7220CAA2C3D053200DCC48E /* FactView.swift in Sources */,
+				F7D13E722C46C31000CD0582 /* LocalStorage.swift in Sources */,
 				F70603E72C3E8FA300D16DF9 /* RequestBuilder.swift in Sources */,
 				F70603F92C3EC4A400D16DF9 /* ImageLoading.swift in Sources */,
 				F7220C982C3C454000DCC48E /* CategoryRow.swift in Sources */,
@@ -441,17 +499,21 @@
 				F72B451C2C3D8DAE009CE4D9 /* UINavigationController.swift in Sources */,
 				F7220CA72C3C5F2F00DCC48E /* IfLetShadow.swift in Sources */,
 				F70603EE2C3E9B5600D16DF9 /* PremiumView.swift in Sources */,
+				F7D13E6C2C46C02900CD0582 /* CategoryObject.swift in Sources */,
 				F70603DD2C3E8A3C00D16DF9 /* CategoriesLoader.swift in Sources */,
 				F70603DA2C3E889300D16DF9 /* DeviceOrientationObserverLive.swift in Sources */,
 				F70603D52C3E876700D16DF9 /* Category.swift in Sources */,
+				F7D13E702C46C23A00CD0582 /* CategoryContentObject.swift in Sources */,
 				F73E5F082C43C95500693646 /* ActivityFeature.swift in Sources */,
 				F70603EC2C3E90EB00D16DF9 /* RequestBuilderLive.swift in Sources */,
+				F7D13E752C46C3ED00CD0582 /* LocalStorageLive.swift in Sources */,
 				F72B45312C3E7163009CE4D9 /* FactFeature.swift in Sources */,
 				F70603E22C3E8B8800D16DF9 /* ConfigLive.swift in Sources */,
 				F772D9A12C43C6410057546C /* ActivityView.swift in Sources */,
 				F70603F02C3E9E4300D16DF9 /* NetworkError.swift in Sources */,
 				F72B45282C3E4EC9009CE4D9 /* DeviceOrientationObserver.swift in Sources */,
 				F798EFCB2C3C3D0F00A3DF77 /* PromovaTestTaskApp.swift in Sources */,
+				F7D13E772C46C4B200CD0582 /* LocalStorageError.swift in Sources */,
 				F70603F62C3EABE600D16DF9 /* CategoriesListAlertStates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -680,6 +742,14 @@
 				minimumVersion = 1.11.2;
 			};
 		};
+		F7D13E632C46BEE700CD0582 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.52.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -687,6 +757,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F72B452B2C3E6A12009CE4D9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		F7D13E662C46BEE700CD0582 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7D13E632C46BEE700CD0582 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

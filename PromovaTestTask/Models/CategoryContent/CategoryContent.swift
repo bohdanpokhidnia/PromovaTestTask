@@ -10,11 +10,29 @@ import Foundation
 struct CategoryContent: Identifiable, Decodable {
     var id = UUID()
     let fact: String
-    let image: String
+    var image: String?
+    var imageData: Data?
     
     enum CodingKeys: CodingKey {
         case fact
         case image
+    }
+    
+    // MARK: - Initializers
+    
+    init(
+        fact: String,
+        image: String? = nil,
+        imageData: Data? = nil
+    ) {
+        self.fact = fact
+        self.image = image
+        self.imageData = imageData
+    }
+    
+    init(categoryContentObject: CategoryContentObject) {
+        self.fact = categoryContentObject.fact
+        self.imageData = categoryContentObject.imageData
     }
 }
 

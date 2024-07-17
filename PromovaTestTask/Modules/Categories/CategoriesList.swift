@@ -15,6 +15,7 @@ struct CategoriesList {
         var isLoading: Bool = false
         var categories: IdentifiedArrayOf<Category> = []
         var path = StackState<Path.State>()
+        var localStorageDependencies = try! LocalStorageDependencies()
         @Presents var alert: AlertState<Action.Alert>?
     }
     
@@ -27,6 +28,9 @@ struct CategoriesList {
         case order(categories: [Category])
         case path(StackActionOf<Path>)
         case timerFire(category: Category)
+        case localStorage(error: LocalStorageError)
+        case equal(localCategories: [CategoryObject], networkCategories: [Category])
+        case save(categories: [Category])
         
         enum Alert {
             case showAd(id: UUID)
@@ -44,6 +48,7 @@ struct CategoriesList {
     
     @Dependency(\.categoriesLoader) private var categoriesLoader
     @Dependency(\.continuousClock) var clock
+    @Dependency(\.localStorage) var localStorage
     
     var body: some ReducerOf<Self> {
         Reduce { (state, action) in
@@ -71,11 +76,17 @@ struct CategoriesList {
                 state.isLoading = true
                 state.categories.removeAll()
                 
-                return .run { (send) in
+                return .run { [localStorageDependencies = state.localStorageDependencies] (send) in
+                    let categoryObjects = await localStorage.fetchCategories(localStorageDependencies)
                     let result = await categoriesLoader.fetchCategories(CategoryLoaderDependencies())
                     switch result {
-                    case let .success(categories):
-                        await send(.order(categories: categories))
+                    case let .success(networkCategories):
+                        if categoryObjects.isEmpty {
+                            await send(.save(categories: networkCategories))
+                            await send(.order(categories: networkCategories))
+                        } else {
+                            await send(.equal(localCategories: categoryObjects, networkCategories: networkCategories))
+                        }
                         
                     case let .failure(error):
                         await send(.network(error: error))
@@ -116,6 +127,46 @@ struct CategoriesList {
                 state.isLoading = false
                 state.path.append(.fact(FactFeature.State(category: category)))
                 return .cancel(id: CancelID.timer)
+                
+            case let .localStorage(error):
+                state.isLoading = false
+                print("[dev] \(error)")
+                return .none
+                
+            case let .equal(localCategories, networkCategories):
+//                return .send(.order(categories: networkCategories))
+                
+                return .run { [localStorageDependencies = state.localStorageDependencies] (send) in
+                    for localCategory in localCategories {
+                        let category = Category(categoryObject: localCategory)
+                        
+                        if let networkCategory = networkCategories.first(where: { $0.status == category.status }) {
+                            print("[dev] \(networkCategory.title)")
+                            if let error = await localStorage.updateCategory(
+                                localStorageDependencies,
+                                localCategory.id.stringValue,
+                                networkCategory,
+                                nil
+                            ) {
+                                await send(.localStorage(error: error))
+                            }
+                        }
+                    }
+                    
+                    await send(.order(categories: networkCategories))
+                }
+                
+            case let .save(networkCategories):
+                let localCategories = networkCategories.map {
+                    CategoryObject()
+                        .update(from: $0)
+                }
+                
+                return .run { [localStorageDependencies = state.localStorageDependencies] (send) in
+                    for localCategory in localCategories {
+                        await localStorage.addCategory(localStorageDependencies, localCategory)
+                    }
+                }
             }
         }
         .ifLet(\.$alert, action: \.alert)

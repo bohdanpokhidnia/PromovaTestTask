@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 enum CategoryStatus: String, FallbackCase {
     static var fallbackCase: CategoryStatus { .comingSoon }

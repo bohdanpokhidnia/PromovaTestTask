@@ -12,10 +12,11 @@ struct Category: Identifiable, Decodable {
     var id = UUID()
     let title: String
     let description: String
-    let image: String
+    var image: String?
     let order: Int
     let status: CategoryStatus
     let content: IdentifiedArrayOf<CategoryContent>
+    var imageData: Data?
     
     enum CodingKeys: CodingKey {
         case title
@@ -49,10 +50,19 @@ struct Category: Identifiable, Decodable {
         
         self.title = try container.decode(String.self, forKey: .title)
         self.description = try container.decode(String.self, forKey: .description)
-        self.image = try container.decode(String.self, forKey: .image)
+        self.image = try container.decodeIfPresent(String.self, forKey: .image)
         self.order = try container.decode(Int.self, forKey: .order)
         self.status = try container.decode(CategoryStatus.self, forKey: .status)
         self.content = IdentifiedArray(uniqueElements: try container.decodeIfPresent([CategoryContent].self, forKey: .content) ?? [])
+    }
+    
+    init(categoryObject: CategoryObject) {
+        self.title = categoryObject.title
+        self.description = categoryObject.categoryDescription
+        self.order = categoryObject.order
+        self.status = CategoryStatus(rawValue: categoryObject.statusValue) ?? .fallbackCase
+        self.content = IdentifiedArray(uniqueElements: categoryObject.content.map { CategoryContent(categoryContentObject: $0) })
+        self.imageData = categoryObject.imageData
     }
 }
 
@@ -60,7 +70,7 @@ struct Category: Identifiable, Decodable {
 
 extension Category: Equatable {
     static func == (lhs: Category, rhs: Category) -> Bool {
-        lhs.id == rhs.id
+        lhs.status == rhs.status
     }
 }
 
