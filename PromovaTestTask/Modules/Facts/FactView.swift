@@ -42,10 +42,10 @@ struct FactView: View {
                                     containerWidth: factRowWidth,
                                     content: content,
                                     leadingButtonTapped: {
-                                        store.send(.leadingButtonTapped)
+                                        store.send(.leadingButtonTapped, animation: .default)
                                     },
                                     trailingButtonTapped: {
-                                        store.send(.trailingButtonTapped)
+                                        store.send(.trailingButtonTapped, animation: .default)
                                     }
                                 )
                                 .frame(width: factRowWidth, height: factRowHeight)
