@@ -29,7 +29,7 @@ struct CategoriesList {
         case timerFire(category: Category)
         
         enum Alert {
-            case showAd(id: UUID)
+            case showAd(id: String)
         }
     }
     
@@ -49,7 +49,7 @@ struct CategoriesList {
         Reduce { (state, action) in
             switch action {
             case let .alert(.presented(.showAd(id))):
-                guard let category = state.categories[id: id] else {
+                guard let category = state.categories.first(where: { $0.id == id }) else {
                     return .none
                 }
                 state.isLoading = true

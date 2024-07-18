@@ -9,7 +9,10 @@ import SwiftUI
 import ComposableArchitecture
 
 struct Category: Identifiable, Decodable {
-    var id = UUID()
+    var id: String {
+        "\(title)_\(status.rawValue)"
+    }
+    
     let title: String
     let description: String
     let image: String

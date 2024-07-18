@@ -9,7 +9,7 @@ import Foundation
 import ComposableArchitecture
 
 extension AlertState where Action == CategoriesList.Action.Alert {
-    static func showAd(id: UUID) -> Self {
+    static func showAd(id: String) -> Self {
         Self {
             TextState("Watch Ad to continue")
         } actions: {
