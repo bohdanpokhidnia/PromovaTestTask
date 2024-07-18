@@ -13,7 +13,7 @@ struct FactView: View {
     private let factRowHorizontalPadding: CGFloat = 20.0
     private let containerHeightProportion: CGFloat = 435.0 / 700.0
     
-    @Dependency(\.deviceOrientationObserver) private var deviceOrientationObserver
+    @Environment(\.deviceOrientationObserver) private var deviceOrientationObserver
     
     var body: some View {
         GeometryReader { (proxy) in
